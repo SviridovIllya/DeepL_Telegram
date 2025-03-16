@@ -5,9 +5,9 @@ import asyncio
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
-API_KEY = "e5e0ef24-4df7-48e6-aa96-93b276a33393:fx"
+API_KEY = ""
 
-TELEGRAM_TOKEN = "8061985289:AAGkExPeaA682JH3d2WdKrfn1KwSQthXY8I"
+TELEGRAM_TOKEN = ""
 
 translator = deepl.Translator(API_KEY)
 
