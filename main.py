@@ -5,16 +5,13 @@ import asyncio
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
-# Ваш API-ключ для DeepL
 API_KEY = "e5e0ef24-4df7-48e6-aa96-93b276a33393:fx"
 
-# Ваш токен для Telegram-бота (отримайте від BotFather)
 TELEGRAM_TOKEN = "8061985289:AAGkExPeaA682JH3d2WdKrfn1KwSQthXY8I"
 
-# Ініціалізація перекладача DeepL
 translator = deepl.Translator(API_KEY)
 
-# Список мов, які підтримують параметр formality
+
 FORMALITY_SUPPORTED_LANGUAGES = {"DE", "FR", "IT", "ES", "NL", "PL", "PT", "RU"}
 
 # Функція для створення глосарію
@@ -108,17 +105,13 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if os.path.exists(output_path):
         os.remove(output_path)
 
-# Основна функція для запуску бота
 def main():
-    # Ініціалізація Telegram-бота
     application = Application.builder().token(TELEGRAM_TOKEN).build()
 
-    # Додаємо обробники
     application.add_handler(CommandHandler("start", start))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
     application.add_handler(MessageHandler(filters.Document.ALL, handle_document))
 
-    # Запускаємо бота
     print("Бот запущений!")
     application.run_polling()
 
