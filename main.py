@@ -7,7 +7,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 
 API_KEY = ""
 
-TELEGRAM_TOKEN = ""
+TELEGRAM_TOKEN = " "
 
 translator = deepl.Translator(API_KEY)
 
